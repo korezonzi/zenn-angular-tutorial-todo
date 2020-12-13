@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "zenn-angular-todo"
+  "defaultProject": "zenn-angular-todo",
+  "cli": {
+    "analytics": "1ddc58e1-c199-4a2b-9771-beff29664a32"
+  }
 }

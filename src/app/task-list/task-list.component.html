@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let task of tasks">
+     <!--TaskListItemComponentのtaskクラスにtaskを渡す-->
+    <app-task-list-item [task]="task"></app-task-list-item>
+  </li>
+  <li>
+    <input type="text" [(ngModel)]="newTask.title" #title="ngModel" required>
+    <input type="date" [(ngModel)]="newTask.deadline">
+    <button (click)="addTask()" [disabled]="title.invalid">追加</button>
+  </li>
+</ul>
+<p>newTaskの値: {{newTask|json}}</p>
+

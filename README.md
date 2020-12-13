@@ -1,4 +1,6 @@
 # ZennAngularTodo
+## Zenn-Angular実践入門チュートリアル
+## https://zenn.dev/ttskch/books/84c7a272deb3845e8085/viewer/020784c9a778efd31c61
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 

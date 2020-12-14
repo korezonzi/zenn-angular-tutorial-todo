@@ -4,10 +4,10 @@
     <app-task-list-item [task]="task"></app-task-list-item>
   </li>
   <li>
-    <input type="text" [(ngModel)]="newTask.title" #title="ngModel" required>
-    <input type="date" [(ngModel)]="newTask.deadline">
-    <button (click)="addTask()" [disabled]="title.invalid">追加</button>
+    <!--<button (click)="addTask()">追加</button>
+     ↑元の処理: clickイベントの発火に合わせてaddTaskを実行する
+     今回:addTaskイベントの発火に合わせてaddTask($event)を実行する(今回は追加がクリックされた時)-->
+    <app-task-form (addTask)="addTask($event)"></app-task-form>
   </li>
 </ul>
-<p>newTaskの値: {{newTask|json}}</p>
 

@@ -1,13 +1,9 @@
-<ul>
-  <li *ngFor="let task of tasks">
-     <!--TaskListItemComponentのtaskクラスにtaskを渡す-->
+<nz-list nzBordered>
+  <nz-list-item *ngFor="let task of tasks">
     <app-task-list-item [task]="task"></app-task-list-item>
-  </li>
-  <li>
-    <!--<button (click)="addTask()">追加</button>
-     ↑元の処理: clickイベントの発火に合わせてaddTaskを実行する
-     今回:addTaskイベントの発火に合わせてaddTask($event)を実行する(今回は追加がクリックされた時)-->
+  </nz-list-item>
+  <nz-list-item>
     <app-task-form (addTask)="addTask($event)"></app-task-form>
-  </li>
-</ul>
+  </nz-list-item>
+</nz-list>
 

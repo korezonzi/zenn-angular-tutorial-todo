@@ -13,7 +13,15 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 registerLocaleData(en);
-import {NzCheckboxModule, NzListModule, NzPageHeaderModule, NzTagModule} from 'ng-zorro-antd';
+import {
+  NzButtonModule,
+  NzCheckboxModule,
+  NzDatePickerModule, NzGridModule,
+  NzInputModule,
+  NzListModule,
+  NzPageHeaderModule,
+  NzTagModule
+} from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -31,6 +39,10 @@ import {NzCheckboxModule, NzListModule, NzPageHeaderModule, NzTagModule} from 'n
     NzListModule,
     NzCheckboxModule,
     NzTagModule,
+    NzInputModule,
+    NzDatePickerModule,
+    NzButtonModule,
+    NzGridModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 registerLocaleData(en);
+import {NzCheckboxModule, NzListModule, NzPageHeaderModule, NzTagModule} from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,16 @@ registerLocaleData(en);
     TaskListItemComponent,
     TaskFormComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzPageHeaderModule,
+    NzListModule,
+    NzCheckboxModule,
+    NzTagModule,
+  ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })

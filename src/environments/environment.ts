@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyBDVsVD7fxyNpJNrDAHwXVtE-0iMSizXxg',
+    authDomain: 'zenn-angular-todo.firebaseapp.com',
+    databaseURL: 'https://zenn-angular-todo-default-rtdb.firebaseio.com',
+    projectId: 'zenn-angular-todo',
+    storageBucket: 'zenn-angular-todo.appspot.com',
+    messagingSenderId: '957935245784',
+    appId: '1:957935245784:web:9911154bb1d11dc3e73aad',
+    measurementId: 'G-40ZYP6GTEM'
+  },
 };
 
 /*

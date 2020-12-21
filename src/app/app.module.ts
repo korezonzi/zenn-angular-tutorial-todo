@@ -22,6 +22,9 @@ import {
   NzPageHeaderModule,
   NzTagModule
 } from 'ng-zorro-antd';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import {
     NzDatePickerModule,
     NzButtonModule,
     NzGridModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

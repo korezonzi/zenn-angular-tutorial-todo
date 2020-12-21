@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../../modules/task';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-task-list',
@@ -8,18 +9,24 @@ import {Task} from '../../modules/task';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
-  tasks: Task[] = [
-    { title: 'angular学習',    done: false, deadline: new Date('2021-01-01')},
-    { title: 'scalaアプリ作成', done: false, deadline: new Date('2021-02-01')},
-    { title: 'js学習',         done: true,  deadline: new Date('2020-10-01')},
-  ];
+  constructor(
+    private firestore: AngularFirestore,
+  ) { }
+  tasks: Task[] = [];
   addTask(task: Task): void {
-    this.tasks.push(task);
+    this.firestore.collection('tasks').add(task);
   }
   // tslint:disable-next-line:typedef
 
+  /*ngOnInit:コンポーネントが初期化された直後に実行される。
+  * subscribe: 変更が検知されるたびに実行*/
   ngOnInit(): void {
+    this.firestore.collection('tasks').valueChanges().subscribe((tasks: any) => {
+      this.tasks = tasks.map(task => {
+        task.deadline = task.deadline ? task.deadline.toDate() : null;
+        return task;
+      }) as Task[];
+    });
   }
 
 }

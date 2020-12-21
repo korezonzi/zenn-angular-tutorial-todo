@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "zenn-angular-todo": {
+      "hosting": {
+        "zenn-angular-todo": [
+          "zenn-angular-todo"
+        ]
+      }
+    }
+  }
+}

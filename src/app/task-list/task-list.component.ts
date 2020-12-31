@@ -25,6 +25,9 @@ export class TaskListComponent implements OnInit, OnDestroy {
     delete clone.id;
     this.firestore.collection('tasks').doc(task.id).update(clone);
   }
+  deleteTask(task: Task): void {
+    this.firestore.collection('tasks').doc(task.id).delete();
+  }
   // tslint:disable-next-line:typedef
 
   /*ngOnInit:コンポーネントが初期化された直後に実行される。

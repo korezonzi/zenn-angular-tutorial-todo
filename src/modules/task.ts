@@ -6,6 +6,7 @@ export interface Task {
   title: string;
   done: boolean;
   deadline?: Date;
+  createdAt: Date;
 }
 
 export interface TaskDocument {
@@ -13,6 +14,7 @@ export interface TaskDocument {
   title: string;
   done: boolean;
   deadline?: Timestamp;
+  createdAt: Timestamp;
 }
 
 export function fromDocument(doc: TaskDocument): Task {
@@ -21,5 +23,6 @@ export function fromDocument(doc: TaskDocument): Task {
     title: doc.title,
     done: doc.done,
     deadline: doc.deadline ? doc.deadline.toDate() : null,
+    createdAt: doc.createdAt.toDate(),
   };
 }

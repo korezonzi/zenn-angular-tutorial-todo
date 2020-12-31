@@ -31,7 +31,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   * subscribe: 変更が検知されるたびに実行*/
   ngOnInit(): void {
     this.subscription = this.firestore.collection('tasks').valueChanges({idField: 'id'}).subscribe((tasks: TaskDocument[]) => {
-      this.tasks = tasks.map(fromDocument);
+      this.tasks = tasks.map(fromDocument).sort((a: Task, b: Task) => a.createdAt.getTime() - b.createdAt.getTime());
     });
   }
   ngOnDestroy(): void {

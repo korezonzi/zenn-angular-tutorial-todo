@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Task} from '../../modules/task';
+import {fromDocument, Task, TaskDocument} from '../../modules/task';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Subscription} from 'rxjs';
 
@@ -23,11 +23,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
   /*ngOnInit:コンポーネントが初期化された直後に実行される。
   * subscribe: 変更が検知されるたびに実行*/
   ngOnInit(): void {
-    this.subscription = this.firestore.collection('tasks').valueChanges().subscribe((tasks: any) => {
-      this.tasks = tasks.map(task => {
-        task.deadline = task.deadline ? task.deadline.toDate() : null;
-        return task;
-      }) as Task[];
+    this.subscription = this.firestore.collection('tasks').valueChanges().subscribe((tasks: TaskDocument[]) => {
+      this.tasks = tasks.map(fromDocument);
     });
   }
   ngOnDestroy(): void {
